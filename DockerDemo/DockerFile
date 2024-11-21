@@ -1,6 +1,0 @@
-FROM ubuntu
-RUN mkdir /bin
-RUN apt instal ngnix
-COPY assignment.sh /bin
-CMD /bin/assignment.sh
-
