@@ -1,8 +1,9 @@
-FROM ubuntu
-RUN apt -y update #&& apt-get install -y apt-transport-https
-RUN apt-get -y install nginx
-RUN service nginx start
-COPY assignment.sh /bin
-RUN chmod +x /bin/assignment.sh
-RUN /bin/assignment.sh
+FROM ubuntu:latest
 
+RUN apt-get update && apt-get install -y vim nginx
+
+COPY app-script.sh /usr/local/bin/app-script.sh
+
+RUN chmod +x /usr/local/bin/app-script.sh
+
+CMD ["/usr/local/bin/app-script.sh"]
